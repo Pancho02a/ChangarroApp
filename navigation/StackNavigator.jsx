@@ -1,16 +1,18 @@
 import React from 'react';
+import { View, Text, TextInput, FlatList, Image, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Image, View, Text } from 'react-native';
 import LoginScreen from '../screens/LoginScreen';
-import HomeScreen from '../screens/HomeScreen';
 import StackScreen from '../screens/StackScreen';
 import LoadScreen from '../screens/LoadScreen';
 import RegisScreen from '../screens/RegisScreen';
 import VerifyScreen from '../screens/VerifyScreen';
+import HomeScreen from '../screens/HomeScreen';
+import SearchResults from '../screens/SearchResults';
 
 // Importa tu logo aquí
 import LogoImage from '../assets/Logo.png';
+import SuccessfulScreen from '../screens/SuccessfulScreen';
 
 const Stack = createStackNavigator();
 
@@ -27,11 +29,15 @@ function MyScreens() {
         component={LoginScreen}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ headerTitle: 'Nombre de tu aplicación' }}
+        options={{ headerShown: false }}
+        
       />
+
+
       <Stack.Screen
         name='Regis'
         component={RegisScreen}
@@ -69,6 +75,16 @@ function MyScreens() {
           },
           headerTintColor: '#030A8C',
         })}
+      />
+      <Stack.Screen
+        name="successful"
+        component={SuccessfulScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SearchResults"
+        component={SearchResults}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
